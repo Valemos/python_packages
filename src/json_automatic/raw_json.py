@@ -1,4 +1,4 @@
-from serialization.i_json_serializable import IJsonSerializable
+from .i_json_serializable import IJsonSerializable
 
 
 class RawJson(IJsonSerializable):

@@ -1,2 +1,3 @@
-from setuptool import declare_namespace
-declare_namespace()
+from pkg_resources import declare_namespace
+
+declare_namespace("json_automatic")

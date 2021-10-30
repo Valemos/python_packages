@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Type
 
-from serialization.i_json_serializable import IJsonSerializable
+from .i_json_serializable import IJsonSerializable
 
 
 class EnumMappingJson(dict, IJsonSerializable):

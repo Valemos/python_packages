@@ -1,8 +1,8 @@
 from abc import abstractmethod
 from typing import Type
 
-from serialization.i_json_serializable import IJsonSerializable
-from serialization.metaclasses import SingleTypeScheme
+from .i_json_serializable import IJsonSerializable
+from .metaclasses import SingleTypeScheme
 
 
 class AContainerJsonSerializable(IJsonSerializable, metaclass=SingleTypeScheme):

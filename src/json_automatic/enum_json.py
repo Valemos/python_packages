@@ -1,6 +1,6 @@
 from enum import Enum
 
-from serialization.i_json_serializable import IJsonSerializable
+from .i_json_serializable import IJsonSerializable
 
 
 class EnumByNameJson(IJsonSerializable, Enum):

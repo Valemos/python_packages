@@ -1,11 +1,13 @@
 import dataclasses
 import unittest
 
-from serialization.a_composite_json_serializable import ACompositeJsonSerializable
-from serialization.a_container_json_serializable import AContainerJsonSerializable
-from serialization.dict_json import RawJson
-from serialization.enum_json import EnumByNameJson, EnumByValueJson
-from serialization.i_json_serializable import IJsonSerializable
+from src.json_automatic.a_composite_json_serializable import ACompositeJsonSerializable
+from src.json_automatic.a_container_json_serializable import AContainerJsonSerializable
+from src.json_automatic.raw_json import RawJson
+from src.json_automatic.enum_json import EnumByNameJson, EnumByValueJson
+from src.json_automatic.enum_named_objects import EnumNamedObjects
+from src.json_automatic.i_json_serializable import IJsonSerializable
+from src.json_automatic.named_object import NamedObject
 
 
 class EnumTest(EnumByNameJson):
@@ -82,3 +84,12 @@ class TestSerializationDeserialization(unittest.TestCase):
         j = obj.to_json()
         obj2 = obj.__class__.from_json(j)
         self.assertEqual(obj, obj2)
+        
+    def test_named_object_enum(self):
+        class Tester(EnumNamedObjects):
+            S1 = NamedObject("item", 1000)
+        
+        self.assertFalse(Tester.has_name("boi"))
+        self.assertTrue(Tester.has_name("item"))
+        self.assertEqual(Tester.S1.get_object(), 1000)
+        self.assertEqual(Tester("item").get_object(), 1000)

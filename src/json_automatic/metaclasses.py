@@ -1,7 +1,7 @@
 import inspect
 from typing import Any, Type, Optional
 
-from serialization.i_json_serializable import IJsonSerializable
+from .i_json_serializable import IJsonSerializable
 
 
 class SingleTypeScheme(type):

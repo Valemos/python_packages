@@ -1,5 +1,5 @@
-from serialization.i_json_serializable import IJsonSerializable
-from serialization.metaclasses import CompositeJsonScheme
+from .i_json_serializable import IJsonSerializable
+from .metaclasses import CompositeJsonScheme
 
 
 class AOptionalJsonSerializable(IJsonSerializable, metaclass=CompositeJsonScheme):
