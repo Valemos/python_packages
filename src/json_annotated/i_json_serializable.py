@@ -24,3 +24,19 @@ class IJsonSerializable:
     @abstractmethod
     def from_json(cls, json_object: dict):
         pass
+
+    @staticmethod
+    def _object_to_json(obj):
+        if IJsonSerializable.is_basic_type(type(obj)):
+            return obj
+        elif isinstance(obj, IJsonSerializable):
+            return obj.to_json()
+
+    @staticmethod
+    def _object_from_json(obj_type, obj):
+        if IJsonSerializable.is_basic_type(obj_type):
+            return obj
+        elif issubclass(obj_type, IJsonSerializable):
+            return obj_type.from_json(obj)
+        else:
+            raise ValueError(f'cannot serialize {repr(obj)}')

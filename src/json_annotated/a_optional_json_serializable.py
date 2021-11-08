@@ -1,3 +1,5 @@
+from json import JSONEncoder
+
 from .i_json_serializable import IJsonSerializable
 from .metaclasses import CompositeJsonScheme
 
